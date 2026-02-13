@@ -2,48 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
+
     <header>
-            <nav class="navigasi">
-                <div class="logo">
-                    <img src="" alt="logo">
-                </div>
-                <div class="menu">
-                    <a href="index.html">Home</a>
-                    <a href="profile.html">Profile</a>
-                    <a href="portfolio">Portfolio</a>
-                    <a href="message us">Message Us</a>
-                </div>
-            </nav>
+        <nav class="navigasi">
+            <div class="logo">
+                <img src="assets/13klevel white logo.png" alt="logo">
+            </div>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="profile.html">Profile</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#messageForm">Message Us</a>
+            </div>
+        </nav>
     </header>
 
     <main>
 
-        <section class="welcoming">
-            <h1>Hi <span id="name"></span></h1>
-        </section>
+        <!-- HERO SECTION -->
         <section class="banner">
-            <img src="assets/GRU2NW.jpg" alt="image">
-        </section>
-        <div class="boxplace">
-            <h2>Our Headquarter</h2>
-            <div class="headquarter">
-                <img src="" alt="jakarta">
-                <img src="" alt="stockholm">
-                <img src="" alt="osaka">
+            <video autoplay muted loop>
+                <source src="assets/Video ai.mp4" type="video/mp4">
+            </video>
 
+            <section class="welcoming">
+                <h1>Hi <span id="name">Naeem</span>, Welcome to my website</h1>
+            </section>
+        </section>
+
+        <!-- SECTION LAIN -->
+        <div id="portfolio" class="boxplace">
+            <h2 class="text-2xl font-bold mb-4">Portfolio</h2>
+            <div class="portfolio">
+                <img src="jakarta.jpg" alt="jakarta">
+                <img src="stockholm.jpg" alt="stockholm">
+                <img src="osaka.jpg" alt="osaka">
             </div>
         </div>
+
+        <!-- MESSAGE US SECTION -->
+        <div class="bg-gray-100">
+            <div class="max-w-6xl mx-auto py-12">
+
+                <h2 class="text-3xl font-bold mb-8">Message Us</h2>
+
+                <div class="grid grid-cols-2 gap-10">
+
+                    <!-- FORM -->
+                    <form id="messageForm" class="space-y-4">
+
+                        <div>
+                            <label class="block mb-1 font-medium">Nama</label>
+                            <input type="text" id="inputName"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        </div>
+
+                        <div>
+                            <label class="block mb-1 font-medium">Tanggal Lahir</label>
+                            <input type="date" id="inputBirth"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        </div>
+
+                        <div>
+                            <label class="block mb-1 font-medium">Jenis Kelamin</label>
+                            <div class="flex gap-4 mt-1">
+                                <label class="flex items-center gap-2">
+                                    <input type="radio" name="gender" value="Laki-Laki">
+                                    Laki-Laki
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="radio" name="gender" value="Perempuan">
+                                    Perempuan
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block mb-1 font-medium">Pesan</label>
+                            <textarea id="inputMessage"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 h-28 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                            Submit
+                        </button>
+
+                    </form>
+
+                    <!-- RESULT TABLE -->
+                    <div class="bg-white shadow-lg rounded-xl p-6">
+                        <table class="w-full text-left border-collapse">
+                            <tbody class="divide-y divide-gray-200">
+
+                                <tr>
+                                    <td class="py-2 font-semibold">Current Time</td>
+                                    <td id="currentTime" class="py-2"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="py-2 font-semibold">Nama</td>
+                                    <td id="resultName" class="py-2"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="py-2 font-semibold">Tanggal Lahir</td>
+                                    <td id="resultBirth" class="py-2"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="py-2 font-semibold">Jenis Kelamin</td>
+                                    <td id="resultGender" class="py-2"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="py-2 font-semibold">Pesan</td>
+                                    <td id="resultMessage" class="py-2"></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <footer>
-
+    <footer class="foot">
+        <h5>Created by NabilZain</h5>
     </footer>
-    
-    <script src="./js/script.js"></script>
+
+<script src="js/script.js"></script>
 </body>
 </html>
