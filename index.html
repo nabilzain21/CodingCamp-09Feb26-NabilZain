@@ -33,19 +33,63 @@
             </video>
 
             <section class="welcoming">
-                <h1>Hi <span id="name">Naeem</span>, Welcome to my website</h1>
+                <h1 id="welcomeText">Welcome to my website</h1>
             </section>
         </section>
 
-        <!-- SECTION LAIN -->
-        <div id="portfolio" class="boxplace">
-            <h2 class="text-2xl font-bold mb-4">Portfolio</h2>
-            <div class="portfolio">
-                <img src="jakarta.jpg" alt="jakarta">
-                <img src="stockholm.jpg" alt="stockholm">
-                <img src="osaka.jpg" alt="osaka">
+        <!-- PORTFOLIO SECTION -->
+        <section id="portfolio" class="py-16 px-6 bg-gradient-to-b from-white to-gray-50">
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-3">Portfolio</h2>
+                    <p class="text-gray-600">Explore my amazing collection of works</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-orange-600 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1 - Jakarta -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="assets/brookies-04.jpg" alt="Brownies" 
+                            class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-2xl font-bold mb-2">Duale Brownies</h3>
+                                <p class="text-sm text-gray-200">Get Your Brookies</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 - Stockholm -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="assets/20251230_0057_Black BMW Underwater_remix_01kdnm2e8ze7pad18e7m9mz5rk.png" alt="BMW-M4" 
+                            class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-2xl font-bold mb-2">BMW-M4</h3>
+                                <p class="text-sm text-gray-200">M Performance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 - Osaka -->
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="assets/poster 4.jpg" alt="Poster" 
+                            class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <h3 class="text-2xl font-bold mb-2">Poster Film</h3>
+                                <p class="text-sm text-gray-200">Wallpaper</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- MESSAGE US SECTION -->
         <div class="bg-gray-100">
@@ -91,7 +135,10 @@
                         </div>
 
                         <button type="submit"
-                            class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                            class="w-full py-3 rounded-lg text-white font-semibold
+                                bg-gradient-to-r from-orange-500 to-orange-600
+                                hover:from-orange-600 hover:to-orange-700
+                                transition duration-300 shadow-md hover:shadow-lg">
                             Submit
                         </button>
 
@@ -140,6 +187,24 @@
     <footer class="foot">
         <h5>Created by NabilZain</h5>
     </footer>
+
+    <!-- POPUP -->
+    <div id="namePopup" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-8 rounded-xl shadow-xl w-80 text-center">
+            <h2 class="text-xl font-bold mb-4">Welcome 👋</h2>
+            <p class="mb-4 text-gray-600">Masukkan nama kamu</p>
+            <input type="text" id="popupNameInput"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                placeholder="Nama kamu...">
+            <button id="saveNameBtn"
+                class="w-full py-2 rounded-lg text-white font-semibold
+                    bg-gradient-to-r from-orange-500 to-orange-600
+                    hover:from-orange-600 hover:to-orange-700
+                    transition duration-300 shadow-md hover:shadow-lg">
+                Masuk
+            </button>
+        </div>
+    </div>
 
 <script src="js/script.js"></script>
 </body>

@@ -1,13 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const nameSpan = document.getElementById("name");
+    const welcomeText = document.getElementById("welcomeText");
+    const popup = document.getElementById("namePopup");
+    const popupInput = document.getElementById("popupNameInput");
+    const saveBtn = document.getElementById("saveNameBtn");
+
     const savedName = localStorage.getItem("username");
 
-    // Tampilkan nama tersimpan saat reload
-    if (savedName) {
-        nameSpan.textContent = savedName;
+    // Jika belum ada nama → tampilkan popup
+    if (!savedName) {
+        popup.classList.remove("hidden");
+    } else {
+        welcomeText.textContent = `Hi ${savedName}, Welcome to my website`;
     }
 
+    // Tombol popup - simpan nama
+    saveBtn.addEventListener("click", function () {
+        const newName = popupInput.value.trim();
+
+        if (newName !== "") {
+            localStorage.setItem("username", newName);
+            welcomeText.textContent = `Hi ${newName}, Welcome to my website`;
+            popup.classList.add("hidden");
+        } else {
+            alert("Nama tidak boleh kosong!");
+        }
+    });
+
+    // BONUS: Enter untuk submit popup
+    popupInput.addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            saveBtn.click();
+        }
+    });
+
+    // Form Message
     const form = document.getElementById("messageForm");
 
     form.addEventListener("submit", function (e) {
@@ -18,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const message = document.getElementById("inputMessage").value;
         const gender = document.querySelector('input[name="gender"]:checked')?.value;
 
-        // Simpan nama ke localStorage
-        localStorage.setItem("username", name);
-
-        // Update Hero
-        nameSpan.textContent = name;
+        // Validasi
+        if (!name || !birth || !gender || !message) {
+            alert("Semua field harus diisi!");
+            return;
+        }
 
         // Update Table
         document.getElementById("currentTime").textContent = new Date().toLocaleString();
@@ -31,10 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("resultGender").textContent = gender;
         document.getElementById("resultMessage").textContent = message;
 
-        // Optional: reset form
+        // Reset form
         form.reset();
     });
-    
 
 });
-
